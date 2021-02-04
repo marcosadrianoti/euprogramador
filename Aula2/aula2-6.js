@@ -32,14 +32,13 @@ function montaMatriz(linhasEcolunas) {
         i++;
     }
 
-    while (elemento<elementos) {
+    while (elemento < elementos) {
         
         while (linha < linhas) {
             
             while (coluna < colunas) {
                 matriz[linha][coluna]=elemento
                 // console.log("linha[" + linha + "] coluna[" + coluna + "] = " + elemento);
-                
                 coluna++;
                 elemento++;
             }
