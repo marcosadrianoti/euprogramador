@@ -3,18 +3,18 @@
 // último índice em que o número aparece (como nos métodos indexOf e
 // lastIndexOf).
 
-var meuNumero = 3;
-var meuVetor = [2,3,4,2,3,7,2];
+const meuNumero = 3;
+const meuVetor = [2,3,4,2,3,7,2];
 
 if (posicoes(meuVetor, meuNumero) == '') {
-    console.log("O número " + meuNumero + " não está presente no vetor.")
+    console.log(`O número ${meuNumero} não está presente no vetor.`)
 } else {
-    console.log("O número " + meuNumero + " aparece no vetor nos seguintes indices: " + posicoes(meuVetor, meuNumero))
+    console.log(`O número ${meuNumero} aparece no vetor nos seguintes indices: ${posicoes(meuVetor, meuNumero)}`)
 }
 
 function posicoes(meuVetor, qualNumero) {
-    var listaIndices = [];
-    var indice = 0;
+    let listaIndices = [];
+    let indice = 0;
     meuVetor.forEach(element => {
         if (element == qualNumero) {
             listaIndices.push(indice);

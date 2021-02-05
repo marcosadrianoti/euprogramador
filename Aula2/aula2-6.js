@@ -10,41 +10,46 @@ const rl = readline.createInterface({
 
 rl.question('MATRIZ ==> Digite quantas LINHAS e quantas COLUNAS separados por virgula:  ', (answer) => {
     const numbers = answer.split(',')
+    // const [lines, columns] = numbers;
     
     rl.close()
     
     console.log(montaMatriz(numbers));
+    // console.log(montaMatriz(lines, columns));
 });
 
 function montaMatriz(linhasEcolunas) {
-    var linhas = linhasEcolunas[0];
-    var colunas = linhasEcolunas[1];
-    var elementos = linhas*colunas;
-    var i= 0;
-    var linha = 0;
-    var coluna = 0;
-    var elemento = 1;
+    const [linhas, colunas] = linhasEcolunas;
+    // var linhas = linhasEcolunas[0];
+    // var colunas = linhasEcolunas[1];
+    // var elementos = linhas*colunas;
+    let i = 0;
+    let linha = 0;
+    let coluna = 0;
+    // var elemento = 1;
+    let number = 1;
 
-    var matriz = new Array(linhas);
+    let matriz = new Array(linhas);
 
     while (i<linhas) {
         matriz[i] = new Array(colunas);
         i++;
     }
 
-    while (elemento < elementos) {
+    // while (elemento < elementos) { Evitar fazer muitos laços, no max 2!!!
         
         while (linha < linhas) {
             
             while (coluna < colunas) {
-                matriz[linha][coluna]=elemento
-                // console.log("linha[" + linha + "] coluna[" + coluna + "] = " + elemento);
+                // matriz[linha][coluna]=elemento
+                matriz[linha][coluna]=number
                 coluna++;
-                elemento++;
+                // elemento++;
+                number++;
             }
             coluna=0;
             linha++;
         }
-    }
+    // }
     return matriz
 }
