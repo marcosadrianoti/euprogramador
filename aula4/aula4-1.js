@@ -4,22 +4,22 @@
 
 const readlineSync = require('readline-sync');
 
-let run = true;
 const notas = [];
+let run = true;
 let indice = 0;
 let soma = 0;
 
 while (run) {
     const input = readlineSync.question('Digite a NOTA: ');
     if (input === 'fim'){
-        run = false;
         break;
     }
+    notas.push(parseInt(input));
+}
 
-    notas.push(input);
-    console.log(notas, notas.length);
-}
-while (indice <= notas.length) {
+while (indice <= notas.length - 1) {
     soma = notas[indice] + soma;
+    indice++;
 }
-console.log(soma);
+console.log();
+console.log(`MÉDIA = ${soma/notas.length}`);
