@@ -13,7 +13,7 @@ Processamento
                 então quantidade de homens é incrementado em 1
                 senão quantidade de mulheres é incrementado em 1
         Também testar qual é a maior altura.
-            Se a altura for maior que o anterior, então altura é gravada como o maior elemento e também o sexo será gravado.
+            Se a altura for maior que o anterior, então altura é gravada como o maior pessoao e também o sexo será gravado.
 Fim
     Mostrar na tela:
         Quantas pessoas são do sexo masculino
@@ -21,13 +21,28 @@ Fim
         Quem tem a maior altura e qual seu sexo
 
 */
-
 const pessoas = [
-                ['1,78', 'm'],
-                ['1,50', 'f'],
-                ['1,87', 'm'],
-                ['1,92', 'm'],
-                ['1,70', 'f'],
+                ['1.78', 'm'],
+                ['1.55', 'f'],
+                ['1.87', 'm'],
+                ['1.92', 'm'],
+                ['1.70', 'f'],
                 ];
+let maiorAltura = [0.0,''];
+let qtMasculinos = 0;
+let qtFemininos = 0;
 
-console.log(pessoas[2][0]);
+pessoas.forEach(
+    (pessoa) => {
+                    pessoa[1] == 'm' ? qtMasculinos++ : qtFemininos++;
+                    if (parseFloat(pessoa[0]) > maiorAltura[0]) {
+                        maiorAltura[0] = parseFloat(pessoa[0]);
+                        maiorAltura[1] = pessoa[1]
+                    } 
+                }
+)
+
+console.log(`Femininos = ${qtFemininos}`);
+console.log(`Masculinos = ${qtMasculinos}`);
+
+console.log(`A maior altura é do sexo ${maiorAltura[1]=='f' ? 'Feminino' : 'Masculino'}: ${maiorAltura[0]}`)
