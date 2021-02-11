@@ -22,4 +22,7 @@ while (indice <= notas.length - 1) {
     indice++;
 }
 console.log();
-console.log(`MÉDIA = ${soma/notas.length}`);
+console.log(`\x1b[53m MÉDIA  = ${soma/notas.length}`);
+console.log(' ' + '\x1b[0m       \x1b[7m ');
+console.log(' ' + '\x1b[0m       \x1b[7m ');
+console.log(' ' + '\x1b[0m       \x1b[7m ');
