@@ -3,5 +3,3 @@
 const myDate = new Date('2017, 1, 1');
 
 console.log(myDate);
-
-//Testando o git
