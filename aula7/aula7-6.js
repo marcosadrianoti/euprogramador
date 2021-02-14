@@ -22,18 +22,22 @@ let answer = 'NÃO';
 const aDayMilisec = 86400000;
 const sevenDaysAgoMilisec = new Date().getTime() - (aDayMilisec*7);
 const datesExercises = ['2020/2/10',
-                        '2021/2/9',
+                        '2021/2/4',
                         '2021/2/1',
                         '2021/2/7',
                         '2021/2/5'
 ];
 
-datesExercises.forEach(
-    (dateExercises) => {
-        if (new Date(dateExercises).getTime() > sevenDaysAgoMilisec) {
-            answer = 'SIM';
-        }
-    }
-)
+madePhysicalActivity(datesExercises);
 
 console.log(`Fez atividade física nos últimos 7 dias? ${answer}`);
+
+function madePhysicalActivity(datesExercises) {
+    datesExercises.forEach(
+        (dateExercises) => {
+            if (new Date(dateExercises).getTime() > sevenDaysAgoMilisec) {
+                answer = 'SIM';
+            }
+        }
+    )
+}
