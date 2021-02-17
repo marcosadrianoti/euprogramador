@@ -1,38 +1,42 @@
 /*
 Crie uma função que receba um array de datas e retorne a maior data.
 */
+const myFile = 'mydates.csv';
 
-const csv = require('csv-parser');
-const fs = require('fs');
-const path = require('path');
-const filePath = path.join(__dirname, 'mydates.csv');
+biggestDate(myFile);
 
-const rows = [];
-
-fs.createReadStream(filePath)
-
-  .pipe(csv())
-
-  .on('data', (row) => {
-      rows.push(row);
-  })
-
-  .on('end', () => {
-    console.log('Finished reading file');
-    const datas = rows
-        .map((row) => row["date"]);
-    let majorDate = 0;
-
-    console.log(datas);
+function biggestDate(myFile) {
     
-    datas.forEach(
-        (data) => {
-            let date = new Date(data);
+    const csv = require('csv-parser');
+    const fs = require('fs');
+    const path = require('path');
+    const filePath = path.join(__dirname, myFile);
+    const rows = [];
+    let majorDate = 0;
+    
+    
+    fs.createReadStream(filePath)
+    
+    .pipe(csv())
+    
+    .on('data', (row) => {
+        rows.push(row);
+    })
+    
+    .on('end', () => {
+        const datas = rows
+        .map((row) => row["date"]);
+        
+        // console.log(datas);
+        
+        datas.forEach(
+            (data) => {
+                let date = new Date(data);
             if (date.getTime()>majorDate) {
                 majorDate = date.getTime();
             }
         }
-    )
-    console.log(`A maior data é ${new Date(majorDate)}`);
-  });
-
+        )
+        console.log(`A maior data é ${new Date(majorDate)}`);
+    });
+} 
