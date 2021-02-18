@@ -17,4 +17,4 @@ let today = new Date;
 let endDate = new Date(2017,0,1);
 let diff = today.getTime() - endDate.getTime();
 
-console.log(`${Math.round(diff/day)} dias`);
+console.log(`${parseInt(diff/day)} dias`);
