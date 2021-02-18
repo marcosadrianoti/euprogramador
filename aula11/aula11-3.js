@@ -6,3 +6,11 @@ console.log(first([1,2,3])) // => 3
 console.log(first([1,2,3], 2)) // => [2,3]
 */
 
+let array = [1, 2, 3, 4, 5];
+
+console.log(last(array, 3));
+
+function last(array, nLasts = 1) {
+    let newNLasts = array.slice(nLasts * -1);
+    return newNLasts;
+}
