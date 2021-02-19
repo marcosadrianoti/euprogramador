@@ -5,6 +5,6 @@ decrescente.
 
 const array = [1,2,5,3,6,4];
 
-const crescent = (array) => array.sort();
+const decrescent = (array) => array.sort(function(a,b) {return b-a});
 
-console.log(crescent(array));
+console.log(decrescent(array));
