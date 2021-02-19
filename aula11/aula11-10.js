@@ -8,7 +8,9 @@ console.log(unique([1,2,2,3,4,4]); // => [1,2,3,4]
 
 let myArray = [1,2,2,3,4,4];
 
+console.log(unique(myArray));
+
 function unique(array) {
 
-
+    return [...new Set(array)];
 }
