@@ -5,8 +5,10 @@ console.log(fill(3, 'a')); // => ['a', 'a', 'a']
 console.log(fill(2, 'Marcle')); // => ['Marcle', 'Marcle']
 */
 
-function fill(elements, value){
+console.log(fill(3,"a"));
 
+function fill(howManyElements, value){
 
+    return Array(howManyElements).fill(value);
 
 }
