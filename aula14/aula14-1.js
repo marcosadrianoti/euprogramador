@@ -17,7 +17,6 @@ SAIDA
 
 const myNumber = 1245;
 
-function reverseNumber(){
+const myInvertedNumber = (myNumber) => String(myNumber).split("").reverse().join("");
 
-
-}
+console.log(Number(myInvertedNumber(myNumber)));
