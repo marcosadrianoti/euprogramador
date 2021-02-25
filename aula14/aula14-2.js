@@ -5,3 +5,12 @@ Um palindromo é uma palavra, frase ou sequencia que é lida da mesma
 maneira de trás pra frente, por exemplo: "madam", "nurses run", "roma me tem
 amor".
 */
+
+const myString = "Marcos Adriano";
+let myInvertedString = "";
+let letter = "";
+for (let i = myString.length - 1; i >= 0; i--) {
+    letter = myString[i] != " " ? myString[i] : "";
+    myInvertedString = myInvertedString + letter;
+}
+console.log(myInvertedString.toLowerCase());
