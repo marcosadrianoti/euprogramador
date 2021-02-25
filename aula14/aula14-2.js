@@ -6,11 +6,27 @@ maneira de trás pra frente, por exemplo: "madam", "nurses run", "roma me tem
 amor".
 */
 
-const myString = "Marcos Adriano";
-let myInvertedString = "";
-let letter = "";
-for (let i = myString.length - 1; i >= 0; i--) {
-    letter = myString[i] != " " ? myString[i] : "";
-    myInvertedString = myInvertedString + letter;
+const myString = "roma me tem amor";
+
+console.log(isPalindromo(myString));
+
+function isPalindromo(myString) {
+    
+    if (typeof myString !== "string" || myString === "") {
+        return false;
+    }else if(myString.length === 1){
+        return true;
+    }
+
+    let myInvertedString = "";
+    let myNormalizedString = "";
+    let letter = "";
+    
+    for (let i = myString.length - 1; i >= 0; i--) {
+        letter = myString[i] != " " ? myString[i].toLowerCase() : "";
+        myInvertedString = myInvertedString + letter;
+        myNormalizedString = letter + myNormalizedString;
+    }
+
+    return myNormalizedString === myInvertedString;
 }
-console.log(myInvertedString.toLowerCase());
