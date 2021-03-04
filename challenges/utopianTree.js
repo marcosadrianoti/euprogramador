@@ -2,10 +2,8 @@
 
 function utopianTree(n) {
     let H = 1;
-    for (let i = 0; i <= n; i++) {
-        if (i !== 0) {
+    for (let i = 1; i <= n; i++) {
             H = i % 2 !== 0 ? H * 2 : H + 1;
-        }
     }
     return H;
 }
