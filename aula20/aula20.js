@@ -61,8 +61,13 @@ class StackCalc {
         this._result = Number(this._stackNumbers.pop());
         for (let i = 0; i < this._arrayInstructions.length; i++) {
         //    console.log(this._arrayInstructions[i]);
-            this._b = Number(this._stackNumbers.pop());
-            console.log(this._stackNumbers)
+            // if (this._arrayInstructions[i] === "DUP") {
+                // this._b = this._result;
+            // } else {
+                
+                this._b = Number(this._stackNumbers.pop());
+            // }
+            // console.log(this._stackNumbers)
             
             console.log('_result =', this._result)
             console.log('b =',this._b)
@@ -80,8 +85,8 @@ class StackCalc {
                 case "/":
                     this._result = this._result / this._b;
                     break;
-                // case "+":
-                //     return 2 + 3;
+                case "DUP": //(3 2 DUP + -) ➞ 1
+                    this._stackNumbers.push(this._result);
 
                 // default:
                 //     break;
@@ -108,7 +113,10 @@ class StackCalc {
     }
 }
 
-let s = new StackCalc('6 5 5 7 * - /');
+let s = new StackCalc();
+// let s = new StackCalc('6 5 5 7 * - /');
+// let s = new StackCalc('6 5 5 7 * - /');
+// let s = new StackCalc('6 5 5 7 * - /');
 console.log(s);
 console.log(s.run(s._instructions));
 console.log(s);
