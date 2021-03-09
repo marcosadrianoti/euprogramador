@@ -69,8 +69,8 @@ class StackCalc {
             // }
             // console.log(this._stackNumbers)
             
-            console.log('_result =', this._result)
-            console.log('b =',this._b)
+            // console.log('_result =', this._result)
+            // console.log('b =',this._b)
             
             switch (this._arrayInstructions[i]) {
                 case "+":
@@ -91,7 +91,7 @@ class StackCalc {
                 // default:
                 //     break;
             }
-            console.log('_result', this._result)
+            // console.log('_result', this._result)
             // this._b = this._stackNumbers.pop();
             
             
