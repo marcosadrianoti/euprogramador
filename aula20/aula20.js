@@ -113,9 +113,9 @@ class StackCalc {
     }
 }
 
-let s = new StackCalc();
+// let s = new StackCalc();
 // let s = new StackCalc('6 5 5 7 * - /');
-// let s = new StackCalc('6 5 5 7 * - /');
+let s = new StackCalc('3 DUP +');
 // let s = new StackCalc('6 5 5 7 * - /');
 console.log(s);
 console.log(s.run(s._instructions));
