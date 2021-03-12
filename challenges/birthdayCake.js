@@ -41,3 +41,14 @@ Explanation 0
 
 Candle heights are [3,2,1,3]. The tallest candles are 3 units, and there are 2 of them.
 */
+
+const candleHeights = '3 2 1 3';
+
+console.log(`Candles that are tallest: ${candles(candleHeights)}`);
+
+function candles(params) {
+    const myArray = Array.from(params);
+    const maxNumber = Math.max(...myArray);
+    const quantityMaxNumber = myArray.filter(x => x === String(maxNumber)).length;
+    return quantityMaxNumber;
+}
