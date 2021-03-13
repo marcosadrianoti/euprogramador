@@ -47,8 +47,27 @@ const candleHeights = '3 2 1 3';
 console.log(`Candles that are tallest: ${candles(candleHeights)}`);
 
 function candles(params) {
-    const myArray = Array.from(params);
-    const maxNumber = Math.max(...myArray);
-    const quantityMaxNumber = myArray.filter(x => x === String(maxNumber)).length;
+    let arrayNumbers = [];
+    let tempNumber = "";
+    for (let i = 0; i <= params.length -1; i++) {
+        if (params[i] != " ") {
+            tempNumber = tempNumber + params[i];
+        }else if(params[i] === " "){
+            arrayNumbers.push(Number(tempNumber));
+            tempNumber = "";
+        }
+    }
+    arrayNumbers.push(Number(tempNumber));
+    
+
+    const maxNumber = Math.max(...arrayNumbers);
+    let quantityMaxNumber = 0;
+    for (let element of arrayNumbers) {
+        if (Number(element) === maxNumber) quantityMaxNumber++;
+    }
+
+    // This code below works fine, but it makes more one array. 
+    // const quantityMaxNumber = arrayNumbers.filter(x => x === String(maxNumber)).length;
+
     return quantityMaxNumber;
 }
