@@ -23,8 +23,34 @@ Output:
 1
 */
 
+const ranked = [100, 100, 50, 40, 40, 20, 10];
+const player = [5, 25, 50, 120, 3]; // [6, 4, 2, 1, 6]
 
+// const ranked = [100, 90, 90, 80];
+// const player = [70, 80, 105]; // [4, 3, 1]
 
-function climbingLeaderboard(params) {
-    
+// const ranked = [100, 90, 90, 80, 75, 60];
+// const player = [50, 65, 77, 90, 102]; // [6, 5, 4, 2, 1]
+
+console.log(climbingLeaderboard(ranked, player));
+
+function climbingLeaderboard(ranked, player) {
+    let trackedRanking = [];
+    let uniqueRanked = [...new Set(ranked)];
+
+    player.forEach(element => {
+        let indexElement = uniqueRanked.findIndex((a) => element === a)
+
+        if (indexElement < 0) {
+            uniqueRanked.push(element);
+            uniqueRanked.sort((a, b) => a - b).reverse();
+            indexElement = uniqueRanked.findIndex((a) => element === a)
+            trackedRanking.push(indexElement + 1);
+            uniqueRanked.splice(indexElement,1);
+        }else{
+            trackedRanking.push(indexElement + 1);
+        }
+    });
+
+    return trackedRanking;
 }
