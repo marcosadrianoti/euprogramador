@@ -9,8 +9,6 @@ The new list is 1 > 1 > 2 > 3 > 7 > null
 
 Function Description
 
-Complete the mergeLists function in the editor below.
-
 mergeLists has the following parameters:
 
 SinglyLinkedListNode pointer headA: a reference to the head of a list
@@ -93,13 +91,28 @@ class SinglyLinkedList {
 }
 
 const listA = new SinglyLinkedList()
-list1.push(1);
-// list1.push(2);
-list1.push(3);
-// list1.push(4);
-list1.push(7);
+listA.push(1);
+// listA.push(2);
+listA.push(3);
+listA.push(10);
+listA.push(7);
 const listB = new SinglyLinkedList()
-// list2.push(1);
-// list2.push(2);
-list2.push(3);
-list2.push(4);
+// listB.push(1);
+// listB.push(2);
+listB.push(3);
+listB.push(4);
+
+console.log(mergeLists(listA.head, listB.head));
+
+function mergeLists(headA, headB) {
+    tempArray = [];
+    for (i = 0; i <= listA.length - 1; i++) {
+        tempArray.push(headA.value);
+        headA = headA.next;
+    }
+    for (i = 0; i <= listB.length - 1; i++) {
+        tempArray.push(headB.value);
+        headB = headB.next;
+    }
+    console.log(tempArray.sort((a, b) => a - b));
+}
