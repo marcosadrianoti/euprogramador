@@ -102,29 +102,24 @@ class SinglyLinkedList {
 }
 
 const list1 = new SinglyLinkedList()
-list1.push(1)
-list1.push(2)
-list1.push(3)
-list1.push(4)
+list1.push(1);
+list1.push(2);
+list1.push(3);
+list1.push(4);
 const list2 = new SinglyLinkedList()
-list2.push(1)
-list2.push(2)
-list2.push(3)
-list2.push(4)
+list2.push(1);
+list2.push(2);
+list2.push(3);
+list2.push(4);
 
-console.log(compare_lists(list1, list2));
+console.log(compare_lists(list1.head, list2.head));
 
-function compare_lists(list1, list2){
-
-    if (list1.length === 0 && list2.length === 0 ) return 1;
-
-    if (list1.length != 0 && list2.length === 0 ) return 0;
-
-    if (list1.length === 0 && list2.length != 0 ) return 0;
-
-    if (list1.length === list2.length ) {
-        let nodeList1 = list1.head;
-        let nodeList2 = list2.head;
+function compare_lists(nodeList1, nodeList2) {
+    if (list1.length != list2.length){
+        return 0;
+    }else if (list1.length === 0 && list2.length === 0) {
+        return 1;
+    } else {
         for (i = 0; i <= list1.length - 1; i++) {
             if (nodeList1.value != nodeList2.value) {
                 return 0;
@@ -132,8 +127,6 @@ function compare_lists(list1, list2){
             nodeList1 = nodeList1.next;
             nodeList2 = nodeList2.next;
         }
-    }else{
-        return 0;
     }
 
     return 1;
