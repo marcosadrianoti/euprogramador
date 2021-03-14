@@ -88,31 +88,56 @@ class SinglyLinkedList {
 
         return this;
     }
+
+    print() {
+        let elements = "";
+        if (this.length != 0) {
+            let node = this.head;
+            for (i = 0; i <= this.length - 1; i++) {
+                elements = elements + (i != this.length - 1 ? `${node.value}, ` : node.value);
+                node = node.next
+            }
+            console.log(elements)
+        } else {
+            console.log("empty list");
+        }
+
+        return this;
+    }
 }
 
 const listA = new SinglyLinkedList()
 listA.push(1);
-// listA.push(2);
+listA.push(21);
 listA.push(3);
 listA.push(10);
 listA.push(7);
+
 const listB = new SinglyLinkedList()
-// listB.push(1);
-// listB.push(2);
+listB.push(5);
+listB.push(20);
+listB.push(7);
 listB.push(3);
 listB.push(4);
 
-console.log(mergeLists(listA.head, listB.head));
+mergeLists(listA.head, listB.head).print();
 
 function mergeLists(headA, headB) {
-    tempArray = [];
-    for (i = 0; i <= listA.length - 1; i++) {
-        tempArray.push(headA.value);
-        headA = headA.next;
+    let tempArray = [];
+    const mergedList = new SinglyLinkedList();
+
+    listToArray(listA.length - 1, tempArray, headA);
+    listToArray(listB.length - 1, tempArray, headB);
+
+    tempArray.sort((a, b) => a - b);
+    tempArray.forEach(element => mergedList.push(element));
+
+    return mergedList;
+
+    function listToArray(lengthList, array, head) {
+        for (i = 0; i <= lengthList; i++) {
+            array.push(head.value);
+            head = head.next;
+        }
     }
-    for (i = 0; i <= listB.length - 1; i++) {
-        tempArray.push(headB.value);
-        headB = headB.next;
-    }
-    console.log(tempArray.sort((a, b) => a - b));
 }
