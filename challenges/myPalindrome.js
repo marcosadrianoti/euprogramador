@@ -77,7 +77,7 @@ function myPalindrome(strA, strB) {
     }
     let tempArray = [...subStringA];
     let reversedSubStringA = tempArray.reverse().join("");
-    console.log(reversedSubStringA, strB.indexOf(reversedSubStringA), strB)
+    console.log(subStringA, reversedSubStringA, strB.indexOf(reversedSubStringA), strB)
 
     return bothHave
 }
