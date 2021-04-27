@@ -2,8 +2,8 @@
 const Queue = require('../aula20/queue.js');
 
 class Graph {
-    constructor(numberOfVertices) {
-        this.numberOfVertices = numberOfVertices;
+    constructor(direction = "undirected") {
+		this.direction = direction;
         this.adjacencyList = new Map();
 
     }
@@ -26,15 +26,19 @@ class Graph {
 
     addEdge(origin, destination) {
         this.adjacencyList.get(origin).add(destination);
-        this.adjacencyList.get(destination).add(origin);
+		if(this.direction === "undirected"){
+			this.adjacencyList.get(destination).add(origin);
+		}
     }
 
     removeEdge(origin, destination) {
         this.adjacencyList.get(origin).delete(destination)
-        this.adjacencyList.get(destination).delete(origin)
-
+		
+		if(this.direction === "undirected"){
+			this.adjacencyList.get(destination).add(origin);
+		}
     }
-    
+
     breadthFirstSearch(startingNode){
         let visited = new Map();
         let q = new Queue();
@@ -59,6 +63,18 @@ class Graph {
         return visited.keys();
     }
 
+	depthFirstSearch(startingNode){
+		let visited = new Map();
+	}
+
+	processAdjacentVertices(startingNode, visited){
+		visited.set(startingNode, true);
+		const neighbours = this.adjacencyList.get(startingNode);
+
+		neighbours.forEach((neighbour) => {
+			this.processAdjacentVertices(neighbour, visited);
+		});
+	}
 
     print() {
         const vertices = this.adjacencyList.keys();
@@ -75,7 +91,7 @@ class Graph {
 
 
 
-const graph = new Graph();
+const graph = new Graph("undirected");
 const vertices = ["a", "b", "c", "d", "e", "f"];
 vertices.forEach((v)=>{graph.addVertex(v)});
 
@@ -94,4 +110,4 @@ graph.breadthFirstSearch("a");
 // graph.removeVertex("a")
 // console.log("_____________")
 
-// graph.print()
+graph.print()
