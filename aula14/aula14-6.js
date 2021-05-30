@@ -21,27 +21,34 @@ console.log(unique('abcdef'));
 */
 
 function unique(string) {
-    let newString = "";
-    let duplicatedLetter = false;
+    let newString = ""; //1
+    let duplicatedLetter = false; //1
 
-    for(let i = 0; i < string.length; i++) {
+    for(let i = 0; i < string.length; i++) { //n
 
-      const letter = string[i];
+      const letter = string[i]; //1
 
             //Substitute for "Set" and "Join"
-            for(let id = 0; id < newString.length; id++) {
+            for(let id = 0; id < newString.length; id++) { //n
 
-                duplicatedLetter = newString[id] === letter ? true : false;
-                if (duplicatedLetter === true) {break};
+                duplicatedLetter = newString[id] === letter ? true : false; //2
+                if (duplicatedLetter === true) {break}; //1
         
             }
 
-        if (duplicatedLetter === false) {newString = newString + letter;}
+        if (duplicatedLetter === false) {newString = newString + letter;} //2
   
     }
   
-    return newString;
+    return newString; //1
   }
   
   console.log(unique('abacbdagbcadc'));
   console.log(unique('Marcos Adriano Cruz'));
+
+  // O(unique(string)) = 1+1+n*(1+n*(2+1)+2)+1
+  // O(unique(string)) = 3+n*(1+n*(3)+2)
+  // O(unique(string)) = 3+n*(3+3n)
+  // O(unique(string)) = 3+3n+3n^2
+  // O(unique(string)) = n^2
+  // Complexidade ===> O(n^2)

@@ -19,9 +19,14 @@ const student = {
 transformKeysAndValues(student)
 
 function transformKeysAndValues(student){
-    newObject = new Object();
-    for (let i in student){
-        newObject[student[i]]=i;
+    newObject = new Object(); //1
+    for (let i in student){ //n
+        newObject[student[i]]=i; //2
     }
-    console.log(newObject);
+    console.log(newObject); //1
 }
+
+// O(transformKeysAndValues(student)) = 1+n(2)+1
+// O(transformKeysAndValues(student)) = 2+2n
+// O(transformKeysAndValues(student)) = n
+// Complexidade ===> O(n)

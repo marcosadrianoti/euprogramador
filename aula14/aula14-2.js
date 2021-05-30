@@ -12,21 +12,27 @@ console.log(isPalindromo(myString));
 
 function isPalindromo(myString) {
     
-    if (typeof myString !== "string" || myString === "") {
-        return false;
-    }else if(myString.length === 1){
-        return true;
+    if (typeof myString !== "string" || myString === "") { //1
+        return false; //1
+    }else if(myString.length === 1){ //1
+        return true; //1
     }
 
-    let myInvertedString = "";
-    let myNormalizedString = "";
-    let letter = "";
+    let myInvertedString = ""; //1
+    let myNormalizedString = ""; //1
+    let letter = ""; //1
     
-    for (let i = myString.length - 1; i >= 0; i--) {
-        letter = myString[i] != " " ? myString[i].toLowerCase() : "";
-        myInvertedString = myInvertedString + letter;
-        myNormalizedString = letter + myNormalizedString;
+    for (let i = myString.length - 1; i >= 0; i--) { // n
+        letter = myString[i] != " " ? myString[i].toLowerCase() : ""; //2
+        myInvertedString = myInvertedString + letter; //2
+        myNormalizedString = letter + myNormalizedString; //2
     }
 
-    return myNormalizedString === myInvertedString;
+    return myNormalizedString === myInvertedString; //1
 }
+
+// O(isPalindromo(myString)) = 1+1+1+1+1+1+1+n*(2+2+2)+1
+// O(isPalindromo(myString)) = 8+n*(2+2+2)+1
+// O(isPalindromo(myString)) = 8+(6n)
+// O(isPalindromo(myString)) = (n)
+// Complexidade ===> O(n)
