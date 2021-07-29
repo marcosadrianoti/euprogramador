@@ -1,0 +1,29 @@
+.gallery {
+  width: 700px;
+  height: 550px;
+  margin: 0 auto;
+  background-color: gray;
+}
+
+.image {
+  height: 400px;
+  /* width: 100%; */
+}
+
+.image img {
+  height: 100%;
+  width: 100%;
+}
+
+.minis {
+  height: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 25px 0;
+}
+
+.mini {
+  width: 100px;
+  height: 100px;
+  border: 2px solid blue;
+}
